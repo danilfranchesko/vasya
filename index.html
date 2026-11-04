@@ -7,10 +7,10 @@
   <meta name="description" content="Василиса — наставник UGC-креаторов. Учись снимать для брендов и превращать контент в доход.">
   <title>Василиса — наставник UGC-креаторов</title>
   <style>
-    :root { --paper:#f7f4ee; --ink:#171516; --muted:#77716f; --pink:#c2678e; --pink-soft:#edc4d2; --line:#ded9d1; }
+    :root { --font-body:"Trebuchet MS","Segoe UI",sans-serif; --font-display:Georgia,"Times New Roman",serif; --paper:#f7f4ee; --ink:#171516; --muted:#77716f; --pink:#c2678e; --pink-soft:#edc4d2; --line:#ded9d1; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial,Helvetica,sans-serif; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--font-body); }
     .wrap { width:min(1240px, calc(100% - 64px)); margin:auto; }
     header { height:76px; display:flex; align-items:center; border-bottom:1px solid var(--line); }
     .nav { display:flex; align-items:center; justify-content:space-between; gap:28px; }
@@ -23,7 +23,7 @@
     .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:54px; align-items:center; }
     .eyebrow { display:flex; align-items:center; gap:11px; color:#68615f; font-size:13px; margin-bottom:26px; }
     .avatar { width:36px; height:36px; flex:none; object-fit:cover; border-radius:50%; }
-    h1 { margin:0; font-size:clamp(48px,6.15vw,82px); line-height:.98; letter-spacing:-.065em; font-weight:750; }
+    h1 { margin:0; font-family:var(--font-display); font-weight:600; font-size:clamp(48px,6.15vw,82px); line-height:.98; letter-spacing:-.045em; font-weight:600; }
     h1 span { color:var(--pink); }
     .intro { max-width:390px; margin:22px 0 30px; color:#5d5755; font-size:18px; line-height:1.5; }
     .actions { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
@@ -71,9 +71,15 @@
     /* ---------- about me / socials ---------- */
     .aboutme { padding:90px 0 110px; border-top:1px solid var(--line); position:relative; }
     .aboutme .eyebrow { margin-bottom:22px; }
-    .aboutme h2 { margin:0; font-size:clamp(44px,5.4vw,74px); line-height:.98; letter-spacing:-.065em; font-weight:750; }
+    .aboutme h2 { margin:0; font-family:var(--font-display); font-size:clamp(44px,5.4vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:600; }
     .aboutme h2 span { color:var(--pink); }
     .about-text { min-height:24px; max-width:560px; margin:22px 0 0; color:#5d5755; font-size:18px; line-height:1.5; } /* сюда позже — описание */
+    .about-story { margin-top:36px; padding:22px; border:1px solid var(--line); border-radius:22px; background:#fffdfa; box-shadow:0 16px 38px -30px rgba(70,40,55,.4); }
+    .story-head,.story-controls { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .story-head { margin-bottom:16px; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.12em; } .story-count,.story-tag { color:var(--pink); font-weight:700; }
+    .story-panel { display:grid; grid-template-columns:1fr .72fr; gap:24px; align-items:center; min-height:260px; } .story-copy h3 { margin:10px 0; font:400 clamp(25px,3vw,36px)/1.08 var(--font-display); } .story-copy p { margin:0; color:#655d5b; font-size:14px; line-height:1.6; } .story-copy .quote { margin-top:12px; color:#95727e; font:italic 14px var(--font-display); }
+    .story-photo { position:relative; margin:0; padding:8px 8px 28px; background:white; box-shadow:0 10px 24px #58364020; transform:rotate(1deg); } .story-photo img { display:block; width:100%; height:210px; object-fit:cover; } .story-photo figcaption { position:absolute; bottom:7px; left:10px; color:#827876; font:12px var(--font-display); }
+    .story-controls { margin-top:14px; } .story-controls button { border:1px solid var(--line); border-radius:30px; padding:8px 13px; background:white; color:#5d5553; cursor:pointer; } .story-controls button:hover { background:var(--pink-soft); } .story-dots { display:flex; gap:6px; } .story-dots button { width:7px; height:7px; padding:0; border:0; border-radius:8px; background:#dfd3d4; cursor:pointer; } .story-dots button.active { width:20px; background:var(--pink); }
     .socials { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(18px,3vw,44px); margin-top:56px; }
     .social { display:flex; flex-direction:column; align-items:center; gap:30px; }
     .sbtn { display:inline-flex; align-items:center; gap:11px; padding:14px 22px 14px 16px; border-radius:99px; background:var(--pink-soft); color:#48333c; text-decoration:none; font-size:14px; font-weight:700; transition:transform .2s,background .2s,box-shadow .2s; }
@@ -107,6 +113,7 @@
       .intro { font-size:16px; }
       .aboutme { padding:56px 0 70px; }
       .socials { grid-template-columns:repeat(2,1fr); gap:44px 14px; margin-top:38px; }
+      .about-story { margin-top:25px; padding:15px; } .story-panel { grid-template-columns:1fr; gap:15px; min-height:0; } .story-photo { width:min(100%,330px); margin:auto; } .story-photo img { height:180px; }
       .social { gap:22px; } .sbtn { padding:12px 16px 12px 12px; font-size:13px; } .sbtn .arr { display:none; }
       .phone { border-radius:32px; padding:6px; } .screen { border-radius:26px; }
       .visual { max-width:420px; margin:12px auto 0; }
@@ -147,7 +154,8 @@
   <section class="wrap aboutme" id="about-me">
     <div class="eyebrow"><img class="avatar" src="avatar.png" alt=""> Василиса · обо мне</div>
     <h2><span>обо</span> мне</h2>
-    <p class="about-text"></p>
+    <p class="about-text">Я начинала с обычных видео для своего блога, а сегодня создаю UGC для брендов и обучаю девушек уверенно входить в эту сферу. Здесь — мой путь от первого заказа до собственного обучения.</p>
+    <div class="about-story" aria-label="Интерактивная история Василисы"><div class="story-head"><span>Мой путь в UGC</span><span class="story-count" id="story-count">1 / 7</span></div><div class="story-panel" id="story-panel"></div><div class="story-controls"><button type="button" id="story-prev">← Назад</button><div class="story-dots" id="story-dots"></div><button type="button" id="story-next">Дальше →</button></div></div>
     <div class="socials" aria-label="Мои социальные сети">
       <div class="social">
         <a class="sbtn" href="https://www.instagram.com/reel/DezbC9ax6Fm/?dlrf=bzN3M2lxeDZ3Y2Zv" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.3-3.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>Instagram<span class="arr">↗</span></a>
@@ -182,6 +190,19 @@
   <div class="wrap below" id="mentor">Помогаю создавать контент, который любят бренды.</div>
   <script>
     (function () {
+      var story = [
+        ['От блога к UGC','Всё началось с обычных видео для моего блога.','Мне хотелось зарабатывать самостоятельно, исполнять мечты и помогать близким.','Мечта стала отправной точкой.','2.png','Первый шаг'],
+        ['Первый заказ','Мой первый заказ — 30 видео за 10 000 ₽.','Сценарии казались кринжовыми. Я боялась, что это мой первый и последний заказ.','Но это оказалось только началом.','3.png','Первые ролики'],
+        ['Училась на практике','Каждый новый проект приносил больше опыта.','Я училась снимать и понимать, какой контент нужен бренду.','Разовые заказы стали постоянными сотрудничествами.','5.png','Опыт растёт'],
+        ['Рассказала о своём опыте','Я решила вести блог и говорить об UGC.','Было волнительно делиться тем, в чём я сама ещё разбиралась. Постепенно мне начали писать новые бренды.','Честный путь тоже может вдохновлять.','4.png','Блог об UGC'],
+        ['Нашла свой подход','Я поняла, как выстраивать работу с брендами.','Научилась общаться и создавать контент, который действительно нужен.','С каждым проектом появлялось больше ясности.','6.png','Работа с брендами'],
+        ['Передаю знания','Со временем я запустила собственное обучение.','Сейчас я обучаю девушек UGC и делюсь полезными фишками.','Из личного опыта — в понятную систему.','1.png','Наставничество'],
+        ['Помогаю начать','Теперь я помогаю другим девочкам разобраться в сфере.','Рассказываю о работе с брендами, контенте и пути к первым заказам.','От первых видео — к наставничеству UGC-креаторов.','7.png','Твой следующий шаг']
+      ];
+      var storyIndex=0, storyPanel=document.getElementById('story-panel'), storyDots=document.getElementById('story-dots');
+      story.forEach(function(_,n){var dot=document.createElement('button');dot.type='button';dot.setAttribute('aria-label','Глава '+(n+1));dot.onclick=function(){showStory(n)};storyDots.appendChild(dot)});
+      function showStory(n){storyIndex=(n+story.length)%story.length;var d=story[storyIndex];storyPanel.innerHTML='<div class="story-copy"><div class="story-tag">Глава '+(storyIndex+1)+' - '+d[5]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'<br><br>'+d[2]+'</p><div class="quote">'+d[3]+'</div></div><figure class="story-photo"><img src="img/about/'+d[4]+'" alt="Василиса — '+d[5]+'"></figure>';document.getElementById('story-count').textContent=(storyIndex+1)+' / 7';Array.prototype.forEach.call(storyDots.children,function(b,k){b.classList.toggle('active',k===storyIndex)});document.getElementById('story-prev').textContent=storyIndex?'← Назад':'Сначала';document.getElementById('story-next').textContent=storyIndex===story.length-1?'Сначала ↻':'Дальше →'}
+      document.getElementById('story-prev').onclick=function(){showStory(storyIndex-1)};document.getElementById('story-next').onclick=function(){showStory(storyIndex+1)};showStory(0);
       var cards = [].slice.call(document.querySelectorAll('.vcard'));
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       function safePlay(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
