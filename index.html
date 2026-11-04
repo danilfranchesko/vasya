@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
+  <script>document.documentElement.className+=" js"</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f4ee">
   <meta name="description" content="Василиса — наставник UGC-креаторов. Учись снимать для брендов и превращать контент в доход.">
@@ -119,21 +120,144 @@
       .visual { max-width:420px; margin:12px auto 0; }
       .note { padding:14px 16px 16px; } .note svg { width:48px; height:48px; }
     }
-    @media(prefers-reduced-motion:reduce) { .rec::before { animation:none!important; } *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+
+    /* ---------- анимации (как в демо-видео) ---------- */
+    :root { --ease:cubic-bezier(.2,.8,.2,1); }
+    html.js:not(.go) *, html.js:not(.go) *::before { animation-play-state:paused!important; }
+    h1 .ln { display:block; font-style:normal; }
+    @keyframes rise  { from { opacity:0; translate:0 24px; } to { opacity:1; translate:0 0; } }
+    @keyframes fade  { from { opacity:0; } to { opacity:1; } }
+    @keyframes dropIn{ from { opacity:0; translate:0 -10px; } to { opacity:1; translate:0 0; } }
+    @keyframes cardA { from { opacity:0; translate:-34px 56px; rotate:-9deg; scale:.92; } to { opacity:1; translate:0 0; rotate:0deg; scale:1; } }
+    @keyframes cardB { from { opacity:0; translate:38px 64px;  rotate:8deg;  scale:.92; } to { opacity:1; translate:0 0; rotate:0deg; scale:1; } }
+    @keyframes noteIn{ from { opacity:0; translate:-24px 34px; rotate:-7deg; scale:.86; } to { opacity:1; translate:0 0; rotate:0deg; scale:1; } }
+    @keyframes spark { from { opacity:0; rotate:-120deg; scale:.2; } to { opacity:1; rotate:0deg; scale:1; } }
+    @keyframes corner{ from { opacity:0; scale:.35; } to { opacity:1; scale:1; } }
+    @keyframes panelIn{ from { opacity:0; translate:0 14px; } to { opacity:1; translate:0 0; } }
+    @keyframes photoIn{ from { opacity:0; translate:26px 0; rotate:3deg; } to { opacity:1; translate:0 0; rotate:0deg; } }
+
+    header .brand               { animation:dropIn .6s var(--ease) .00s backwards; }
+    header nav a:nth-child(1)   { animation:dropIn .6s var(--ease) .10s backwards; }
+    header nav a:nth-child(2)   { animation:dropIn .6s var(--ease) .16s backwards; }
+    header nav a:nth-child(3)   { animation:dropIn .6s var(--ease) .22s backwards; }
+    header nav a:nth-child(4)   { animation:dropIn .6s var(--ease) .28s backwards; }
+    header .contact             { animation:dropIn .6s var(--ease) .34s backwards; }
+
+    .hero .eyebrow              { animation:rise .7s var(--ease) .30s backwards; }
+    h1 .ln:nth-child(1)         { animation:rise .8s var(--ease) .40s backwards; }
+    h1 .ln:nth-child(2)         { animation:rise .8s var(--ease) .55s backwards; }
+    h1 .ln:nth-child(3)         { animation:rise .8s var(--ease) .70s backwards; }
+    .hero .intro                { animation:rise .8s var(--ease) .90s backwards; }
+    .hero .actions .button      { animation:rise .8s var(--ease) 1.05s backwards; }
+    .hero .actions .text-link   { animation:rise .8s var(--ease) 1.15s backwards; }
+    .hero .proof                { animation:rise .8s var(--ease) 1.30s backwards; }
+
+    .vcard.a                    { animation:cardA 1s var(--ease) .45s backwards; }
+    .vcard.b                    { animation:cardB 1s var(--ease) .70s backwards; }
+    .note                       { animation:noteIn .9s var(--ease) .95s backwards; }
+    .note svg                   { animation:spark 1s var(--ease) 1.25s backwards; }
+    .corner                     { animation:corner .6s var(--ease) 1.40s backwards; }
+    .corner.tl { transform-origin:0 0; } .corner.tr { transform-origin:100% 0; }
+    .corner.bl { transform-origin:0 100%; } .corner.br { transform-origin:100% 100%; }
+    .rec                        { animation:fade .6s ease 1.55s backwards; }
+
+    /* смена глав в «Моём пути» */
+    .story-copy                 { animation:panelIn .5s var(--ease) both; }
+    .story-photo                { animation:photoIn .6s var(--ease) .05s both; }
+
+    /* появление блоков при прокрутке (классы ставит JS) */
+    .rv { opacity:0; translate:0 30px; transition:opacity .8s var(--ease), translate .8s var(--ease); transition-delay:var(--d,0s); }
+    .rv.in { opacity:1; translate:0 0; }
+
+    /* ---------- мои работы ---------- */
+    .works { padding:90px 0 110px; border-top:1px solid var(--line); scroll-margin-top:0; }
+    .works .eyebrow { margin-bottom:22px; }
+    .works h2 { margin:0; font-family:var(--font-display); font-size:clamp(44px,5.4vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:600; }
+    .works h2 span { color:var(--pink); }
+    .works .about-text { margin-bottom:44px; }
+    /* логотипы брендов: единая сетка, один цвет, равные по «весу» знаки */
+    .brand-logos { --k:1; list-style:none; margin:0 0 clamp(40px,5vw,60px); padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(8px,1.6vw,18px) clamp(20px,4vw,56px); }
+    .brand-logos li { display:flex; align-items:center; justify-content:center; min-height:104px; min-width:0; }
+    .brand-logos img { display:block; width:calc(var(--w) * var(--k)); max-width:100%; height:auto; }
+    .brand-logos .logo-text { font:800 calc(var(--fs) * var(--k))/1 var(--font-body); letter-spacing:.07em; color:#282125; white-space:nowrap; }
+    .brand-work { position:relative; display:grid; grid-template-columns:minmax(250px,.6fr) 1.4fr; gap:clamp(24px,4vw,56px); align-items:center;
+      padding:clamp(22px,4vw,52px); background:#fbf2f4; border:1px solid #f0dde3; border-radius:34px; }
+    .brand-work > .sparkle { position:absolute; right:26px; top:-22px; width:58px; height:58px; fill:var(--pink); rotate:12deg; pointer-events:none; }
+    .brand-name { display:inline-block; font:800 clamp(34px,4.2vw,56px)/1 var(--font-body); letter-spacing:.07em; color:#282125; }
+    .brand-name::after { content:""; display:block; height:4px; margin-top:12px; border-radius:4px; background:var(--pink); transform-origin:left; transition:scale .9s var(--ease) .15s; }
+    .brand-desc { max-width:340px; margin:18px 0 0; color:#5d5755; font-size:15px; line-height:1.55; }
+    .brand-post { position:relative; width:min(100%,340px); margin:30px 0 0; padding:8px 8px 0; background:#fffdfa; border-radius:20px; rotate:-3deg;
+      box-shadow:0 18px 40px -18px rgba(70,40,55,.35); transition:translate .9s var(--ease) .5s, rotate .9s var(--ease) .5s, opacity .7s ease .5s, box-shadow .35s; }
+    .brand-post img { display:block; width:100%; height:auto; border-radius:13px; }
+    .brand-post figcaption { padding:11px 6px 13px; color:#6a5a60; font-size:12px; line-height:1.35; }
+    .works-stage { position:relative; aspect-ratio:1/.72; }
+    .works-stage .vcard { width:34%; z-index:2; rotate:var(--r); box-shadow:0 22px 44px -20px rgba(70,40,55,.42);
+      transition:translate 1s var(--ease) var(--d,0s), rotate .9s var(--ease) var(--d,0s), scale .5s var(--ease), opacity .7s ease var(--d,0s), transform .35s var(--ease), box-shadow .35s; }
+    .works-stage .vcard .play { left:12px; bottom:12px; }
+    .works-stage .vcard.w2 .play { left:auto; right:12px; top:12px; bottom:auto; }
+    .works-stage .vcard.w1 { --r:-5deg; --fx:112%; --fy:6%; --d:.18s; left:0;   top:8%; }
+    .works-stage .vcard.w2 { --r:2deg;  --fx:0%;   --fy:10%; --d:0s;   left:33%; top:0;  z-index:3; }
+    .works-stage .vcard.w3 { --r:6deg;  --fx:-112%;--fy:6%; --d:.36s; left:66%; top:9%; }
+    /* до появления в кадре: карточки «стопкой» в центре */
+    html.js .brand-work:not(.in) .works-stage .vcard { opacity:0; translate:var(--fx) var(--fy); rotate:0deg; scale:.8; }
+    html.js .brand-work:not(.in) .brand-name::after { scale:0 1; }
+    html.js .brand-work:not(.in) .brand-post { opacity:0; translate:-30px 30px; rotate:-9deg; }
+    .brand-work.done .vcard { --d:0s; }
+    /* после появления: лёгкое «плавание», на ховер — приподнимается и выпрямляется */
+    @keyframes floaty { 50% { translate:0 -7px; } }
+    .brand-work.done .vcard.w1 { animation:floaty 7s ease-in-out -1s infinite; }
+    .brand-work.done .vcard.w2 { animation:floaty 8s ease-in-out -3s infinite; }
+    .brand-work.done .vcard.w3 { animation:floaty 6.5s ease-in-out -5s infinite; }
+    .brand-work.done .vcard:hover, .brand-work.done .vcard:focus-visible { animation-play-state:paused; transform:translateY(-8px); rotate:calc(var(--r) * .3); box-shadow:0 30px 54px -20px rgba(70,40,55,.5); }
+    .brand-work.done .brand-post:hover { rotate:-1deg; box-shadow:0 26px 50px -18px rgba(70,40,55,.45); }
+    /* включённое видео выходит вперёд, остальные приглушаются */
+    .works-stage .vcard.active { z-index:6; scale:1.05; animation-play-state:paused; }
+    .works-stage:has(.vcard.active) .vcard:not(.active) { opacity:.72; }
+    @media(max-width:980px) {
+      .brand-logos { --k:.86; }
+      .brand-work { grid-template-columns:1fr; }
+      .brand-info { display:grid; grid-template-columns:1fr 1fr; gap:6px 32px; align-items:start; }
+      .brand-info .brand-name { grid-column:1; } .brand-desc { grid-column:1; } .brand-post { grid-column:2; grid-row:1 / span 2; margin:0; }
+    }
+    @media(max-width:760px) {
+      .works { padding:56px 0 70px; }
+      .brand-logos { --k:.74; grid-template-columns:repeat(2,1fr); gap:6px 16px; margin-bottom:34px; }
+      .brand-logos li { min-height:82px; }
+      .brand-work { border-radius:26px; padding:20px 16px 8px; }
+      .brand-info { display:block; } .brand-post { margin-top:22px; }
+      .works-stage { display:flex; gap:14px; aspect-ratio:auto; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding:0 6px; padding:18px 6px 30px; margin:0 -6px; scrollbar-width:none; }
+      .works-stage::-webkit-scrollbar { display:none; }
+      html.js .brand-work:not(.in) .works-stage .vcard { translate:0 26px; scale:.94; }
+      .works-stage .vcard { position:relative; flex:0 0 64%; max-width:260px; left:auto!important; top:auto!important; scroll-snap-align:start; }
+    }
+    @media(max-width:380px) { .brand-logos { --k:.64; } }
+    @media(prefers-reduced-motion:reduce) { .rec::before { animation:none!important; } *,*::before,*::after { scroll-behavior:auto!important; }
+      @keyframes rise   { from { opacity:0; } to { opacity:1; } }
+      @keyframes dropIn { from { opacity:0; } to { opacity:1; } }
+      @keyframes cardA  { from { opacity:0; } to { opacity:1; } }
+      @keyframes cardB  { from { opacity:0; } to { opacity:1; } }
+      @keyframes noteIn { from { opacity:0; } to { opacity:1; } }
+      @keyframes spark  { from { opacity:0; } to { opacity:1; } }
+      @keyframes corner { from { opacity:0; } to { opacity:1; } }
+      @keyframes panelIn{ from { opacity:0; } to { opacity:1; } }
+      @keyframes photoIn{ from { opacity:0; } to { opacity:1; } }
+      .brand-work.done .vcard { animation:none!important; }
+      .rv { translate:none!important; transition:opacity .8s ease var(--d,0s)!important; }
+    }
   </style>
 </head>
 <body>
   <header><div class="wrap nav">
     <a class="brand" href="#top">ВАСЯ ✦<small>UGC-НАСТАВНИЧЕСТВО</small></a>
-    <nav aria-label="Основная навигация"><a href="#about-me">Обо мне</a><a href="#content">Мой контент</a><a href="#jobs">Вакансии</a><a href="#mentor">Наставничество</a></nav>
+    <nav aria-label="Основная навигация"><a href="#about-me">Обо мне</a><a href="#content">Мой контент</a><a href="#works">Мои работы</a><a href="#mentor">Наставничество</a></nav>
     <a class="contact" href="mailto:hello@example.com">Написать мне ↘</a>
   </div></header>
   <main id="top"><section class="wrap hero" id="hero">
     <div>
       <div class="eyebrow"><img class="avatar" src="avatar.png" alt="Аватар Василисы"> Василиса · наставник UGC-креаторов</div>
-      <h1><span>твоё</span> хобби<br><span>твой</span> контент<br><span>твоя</span> работа</h1>
+      <h1><i class="ln"><span>твоё</span> хобби</i><i class="ln"><span>твой</span> контент</i><i class="ln"><span>твоя</span> работа</i></h1>
       <p class="intro">Учись снимать для брендов<br>и превращать контент в доход.</p>
-      <div class="actions"><a class="button" href="#mentor">Узнать о наставничестве <span>↘</span></a><a class="text-link" href="#jobs">Вакансии от брендов ↗</a></div>
+      <div class="actions"><a class="button" href="#mentor">Узнать о наставничестве <span>↘</span></a><a class="text-link" href="#works">Мои работы ↘</a></div>
       <div class="proof"><div class="proof-line"><span class="number">210K+</span><span>/</span><span>мес.</span></div><div class="proof-caption">на UGC-роликах — мой личный опыт</div></div>
     </div>
     <div class="visual" id="content" aria-label="Видео автора">
@@ -187,6 +311,41 @@
       </div>
     </div>
   </section>
+  <section class="wrap works" id="works">
+    <div class="eyebrow"><img class="avatar" src="avatar.png" alt=""> Василиса · мои работы</div>
+    <h2><span>мои</span> работы</h2>
+    <p class="about-text">Ролики, которые я сняла для брендов. Нажми на видео — включится звук.</p>
+    <ul class="brand-logos" aria-label="Бренды, с которыми я сотрудничала">
+      <li><img src="img/brands/lovix.png" alt="LOVIX" style="--w:150px" width="720" height="187" loading="lazy"></li>
+      <li><img src="img/brands/aravia.png" alt="ARAVIA Professional" style="--w:170px" width="720" height="251" loading="lazy"></li>
+      <li><img src="img/brands/yasoma.png" alt="YASOMA" style="--w:184px" width="713" height="99" loading="lazy"></li>
+      <li><img src="img/brands/lagom.png" alt="LAGOM — not too little, not too much" style="--w:180px" width="1137" height="306" loading="lazy"></li>
+      <li><span class="logo-text" style="--fs:36px">SOKOLOV</span></li>
+      <li><img src="img/brands/frambini.png" alt="frambini" style="--w:166px" width="1042" height="247" loading="lazy"></li>
+    </ul>
+    <article class="brand-work" aria-label="Работы для SOKOLOV">
+      <svg class="sparkle" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C54 28 72 46 100 50C72 54 54 72 50 100C46 72 28 54 0 50C28 46 46 28 50 0Z"/></svg>
+      <div class="brand-info">
+        <div class="brand-name">SOKOLOV</div>
+        <p class="brand-desc">Ювелирный бренд и косметика Sokolov Beauty. Три ролика и пост бренда в Instagram.</p>
+        <figure class="brand-post"><img src="img/works/sokolov-post.jpg" alt="Пост sokolov.beauty в Instagram: конкурс UGC-креаторов" loading="lazy"><figcaption>Пост sokolov.beauty про конкурс UGC-креаторов</figcaption></figure>
+      </div>
+      <div class="works-stage">
+        <button class="vcard w1" type="button" data-video="video/sokolov-1.mp4" data-title="SOKOLOV / Обмен золота" aria-label="Смотреть видео со звуком: SOKOLOV, обмен золота (клик — пауза)">
+          <span class="frame"><video class="preview" src="video/sokolov-1-preview.mp4" poster="video/sokolov-1.jpg" muted loop playsinline preload="metadata"></video><span class="play"></span><span class="bar"></span></span>
+          <span class="label">Обмен золота</span>
+        </button>
+        <button class="vcard w2" type="button" data-video="video/sokolov-2.mp4" data-title="SOKOLOV / Косметика" aria-label="Смотреть видео со звуком: SOKOLOV, косметика (клик — пауза)">
+          <span class="frame"><video class="preview" src="video/sokolov-2-preview.mp4" poster="video/sokolov-2.jpg" muted loop playsinline preload="metadata"></video><span class="play"></span><span class="bar"></span></span>
+          <span class="label">Скупила всю косметику</span>
+        </button>
+        <button class="vcard w3" type="button" data-video="video/sokolov-3.mp4" data-title="SOKOLOV / Кольцо" aria-label="Смотреть видео со звуком: SOKOLOV, кольцо (клик — пауза)">
+          <span class="frame"><video class="preview" src="video/sokolov-3-preview.mp4" poster="video/sokolov-3.jpg" muted loop playsinline preload="metadata"></video><span class="play"></span><span class="bar"></span></span>
+          <span class="label">Кольцо</span>
+        </button>
+      </div>
+    </article>
+  </section>
   <div class="wrap below" id="mentor">Помогаю создавать контент, который любят бренды.</div>
   <script>
     (function () {
@@ -232,6 +391,42 @@
         });
       });
       if (!reduce) cards.forEach(function (c) { safePlay(c.querySelector('video')); });
+    })();
+  </script>
+  <script>
+    (function () {
+      var root = document.documentElement, started = false;
+      function go() { if (started) return; started = true; root.classList.add('go'); }
+      function afterPaint() { requestAnimationFrame(function () { requestAnimationFrame(go); }); }
+      if (document.readyState === 'complete') afterPaint(); else window.addEventListener('load', afterPaint);
+      setTimeout(go, 1800);   /* страховка, если load задерживается из-за видео */
+    })();
+  </script>
+  <script>
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      var items = [];
+      function add(sel, step) {
+        [].slice.call(document.querySelectorAll(sel)).forEach(function (el, i) {
+          el.classList.add('rv'); el.style.setProperty('--d', (i * (step || 0)) + 's'); items.push(el);
+        });
+      }
+      add('.aboutme > .eyebrow'); add('.aboutme h2'); add('.about-text'); add('.about-story');
+      add('.social', .12); add('.below');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+  <script>
+    (function () {
+      var work = document.querySelector('.brand-work');
+      if (!work) return;
+      function show() { work.classList.add('in'); setTimeout(function () { work.classList.add('done'); var st = work.querySelector('.works-stage'); if (st && st.scrollWidth > st.clientWidth) st.scrollLeft = 0; }, 1900); }
+      if (!('IntersectionObserver' in window)) { show(); return; }
+      var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { show(); io.disconnect(); } }, { threshold: .3 });
+      io.observe(work);
     })();
   </script>
 </body>
