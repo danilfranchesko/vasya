@@ -81,7 +81,7 @@
     .story-panel { display:grid; grid-template-columns:1fr .72fr; gap:24px; align-items:center; min-height:260px; } .story-copy h3 { margin:10px 0; font:400 clamp(25px,3vw,36px)/1.08 var(--font-display); } .story-copy p { margin:0; color:#655d5b; font-size:14px; line-height:1.6; } .story-copy .quote { margin-top:12px; color:#95727e; font:italic 14px var(--font-display); }
     .story-photo { position:relative; margin:0; padding:8px 8px 28px; background:white; box-shadow:0 10px 24px #58364020; transform:rotate(1deg); } .story-photo img { display:block; width:100%; height:210px; object-fit:cover; } .story-photo figcaption { position:absolute; bottom:7px; left:10px; color:#827876; font:12px var(--font-display); }
     .story-controls { margin-top:14px; } .story-controls button { border:1px solid var(--line); border-radius:30px; padding:8px 13px; background:white; color:#5d5553; cursor:pointer; } .story-controls button:hover { background:var(--pink-soft); } .story-dots { display:flex; gap:6px; } .story-dots button { width:7px; height:7px; padding:0; border:0; border-radius:8px; background:#dfd3d4; cursor:pointer; } .story-dots button.active { width:20px; background:var(--pink); }
-    .socials { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(18px,3vw,44px); margin-top:56px; }
+    .socials { display:grid; grid-template-columns:repeat(2,minmax(0,260px)); justify-content:center; gap:clamp(28px,7vw,110px); margin-top:56px; }
     .social { display:flex; flex-direction:column; align-items:center; gap:30px; }
     .sbtn { display:inline-flex; align-items:center; gap:11px; padding:14px 22px 14px 16px; border-radius:99px; background:var(--pink-soft); color:#48333c; text-decoration:none; font-size:14px; font-weight:700; transition:transform .2s,background .2s,box-shadow .2s; }
     .sbtn svg { width:22px; height:22px; fill:currentColor; flex:none; }
@@ -95,7 +95,7 @@
     .social:hover .phone { transform:rotate(0) translateY(-8px); }
     .phone::before { content:""; position:absolute; z-index:3; top:15px; left:50%; width:30%; height:15px; margin-left:-15%; border-radius:99px; background:#171516; } /* «остров» камеры */
     .phone::after { content:""; position:absolute; right:-3px; top:90px; width:3px; height:48px; border-radius:0 3px 3px 0; background:#2a2627; }
-    .screen { position:relative; aspect-ratio:9/19; border-radius:31px; overflow:hidden; background:#fffdfa; }
+    .screen { position:relative; aspect-ratio:590/1135; border-radius:31px; overflow:hidden; background:#fffdfa; }
     .screen img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; z-index:2; }
     /* заглушка, пока нет скриншота */
     .ph { position:absolute; inset:0; padding:44px 16px 16px; display:flex; flex-direction:column; align-items:center; gap:10px; color:#6a4a5a; background:linear-gradient(180deg,#fbeef2,#fffdfa 55%); }
@@ -105,6 +105,84 @@
     .ph .grid { margin-top:8px; width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
     .ph .grid i { aspect-ratio:3/4; background:var(--pink-soft); opacity:.55; } .ph .grid i:nth-child(3n+2) { opacity:.35; } .ph .grid i:nth-child(4n) { opacity:.8; }
     .ph .hint { margin-top:auto; font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#a08a95; }
+    /* ---------- наставничество ---------- */
+    .mentor { padding:90px 0 110px; border-top:1px solid var(--line); }
+    .mentor .eyebrow { margin-bottom:22px; }
+    .mentor h2 { margin:0; font-family:var(--font-display); font-size:clamp(44px,5.4vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:600; }
+    .mentor h2 span { color:var(--pink); }
+    .mentor .lead { max-width:620px; margin:22px 0 0; color:#5d5755; font-size:18px; line-height:1.5; }
+    .mentor .ms-title { margin:56px 0 18px; font:800 clamp(22px,2.8vw,28px)/1.15 var(--font-body); letter-spacing:-.03em; }
+    .mcols { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:40px; }
+    .mcard { padding:24px 24px 26px; background:#fffdfa; border:1px solid var(--line); border-radius:22px; box-shadow:0 16px 38px -30px rgba(70,40,55,.4); }
+    .mcard .mtag { display:inline-block; margin-bottom:12px; padding:5px 12px; border-radius:99px; background:var(--pink-soft); color:#6a4a5a; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+    .mcard h3 { margin:0 0 10px; font:800 clamp(18px,2vw,22px)/1.25 var(--font-body); letter-spacing:-.02em; }
+    .mcard p { margin:0; color:#655d5b; font-size:14px; line-height:1.6; }
+    .msteps { display:grid; gap:14px; }
+    .mstep { display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:start; padding:22px 26px; background:#fffdfa; border:1px solid var(--line); border-radius:22px; box-shadow:0 16px 38px -30px rgba(70,40,55,.4); }
+    .mstep .num { font:750 clamp(28px,3vw,40px)/1 var(--font-body); color:var(--pink); letter-spacing:-.05em; }
+    .mhead { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+    .mstep h3 { margin:0; font:800 clamp(18px,2.2vw,22px)/1.2 var(--font-body); letter-spacing:-.02em; }
+    .mstep .days { color:var(--muted); font-size:12px; white-space:nowrap; }
+    .mstep ul { margin:10px 0 0; padding-left:18px; color:#655d5b; font-size:14px; line-height:1.65; }
+    .mcal { display:grid; grid-template-columns:repeat(7,1fr); gap:8px; }
+    .mday { padding:12px 12px 14px; background:#fffdfa; border:1px solid var(--line); border-radius:14px; box-shadow:0 10px 22px -18px rgba(70,40,55,.35); }
+    .mday b { display:block; color:var(--pink); font-size:17px; letter-spacing:-.03em; }
+    .mday span { display:block; margin-top:4px; color:#5d5755; font-size:12px; line-height:1.35; }
+    .mday.hi { background:var(--pink); border-color:var(--pink); }
+    .mday.hi b { color:#fff; } .mday.hi span { color:#fdeef3; }
+    .mres { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .mres .box { padding:26px 28px; border-radius:24px; background:#fbf2f4; border:1px solid #f0dde3; }
+    .mquotes { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .mquote { margin:0; padding:26px 28px; background:#fffdfa; border:1px solid var(--line); border-radius:22px; box-shadow:0 16px 38px -30px rgba(70,40,55,.4); }
+    .mquote blockquote { margin:0; font:700 clamp(17px,1.9vw,21px)/1.4 var(--font-body); color:#282125; letter-spacing:-.01em; }
+    .mquote figcaption { margin-top:14px; color:#95727e; font:italic 13px var(--font-display); }
+    .mquote::before { content:"«"; display:block; height:18px; margin-bottom:12px; color:var(--pink); font:800 42px/0.5 var(--font-body); }
+    .mres h3 { margin:0 0 14px; font:800 clamp(20px,2.4vw,24px)/1.15 var(--font-body); letter-spacing:-.02em; }
+    .mlist { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+    .mlist li { position:relative; padding-left:28px; color:#4f4a49; font-size:15px; line-height:1.45; }
+    .mlist li::before { content:"✓"; position:absolute; left:0; top:0; color:var(--pink); font-weight:800; }
+    .mhow { padding:26px 30px; border-radius:24px; background:#fffdfa; border:1px solid var(--line); }
+    .mhow h3 { margin:0 0 16px; font:800 clamp(20px,2.4vw,24px)/1.15 var(--font-body); letter-spacing:-.02em; }
+    .mhow .row { display:flex; flex-wrap:wrap; gap:12px 34px; }
+    .mhow .row li { font-size:15px; }
+    .mhow .aside { margin:16px 0 0; color:#95727e; font:italic 14px var(--font-display); }
+    .mtariffs { display:grid; grid-template-columns:1fr; gap:16px; max-width:640px; }
+    .mtariff { padding:28px 30px 30px; border-radius:26px; background:var(--pink-soft); color:#48333c; }
+    .mtariff .band { display:inline-block; margin-bottom:14px; padding:5px 13px; border-radius:99px; border:1px solid rgba(72,51,60,.3); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+    .mtariff .price { display:block; font:750 clamp(34px,4vw,46px)/1 var(--font-body); letter-spacing:-.04em; color:#8c4767; }
+    .mtariff .price small { font-size:clamp(14px,1.4vw,17px); font-weight:400; letter-spacing:.01em; }
+    .mtariff p { margin:12px 0 0; font-size:14.5px; line-height:1.6; color:#6a4a5a; }
+    .mtariff.pro { background:var(--pink); }
+    .mtariff.pro .band { border-color:rgba(255,255,255,.55); color:#ffeaf1; }
+    .mtariff.pro .price, .mtariff.pro p { color:#fff; }
+    .mkind { margin:0; }
+    .mkind .mframe { padding:12px 12px 14px; background:#fffdfa; border:1px solid var(--line); border-radius:18px; box-shadow:0 16px 38px -28px rgba(70,40,55,.45); }
+    .mkind .mframe img { display:block; width:100%; height:auto; border-radius:10px; }
+    .mcase caption-side, .mkind figcaption { margin-top:12px; padding:0 4px 2px; color:#655d5b; font-size:13.5px; line-height:1.5; }
+    .mcase { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .mcta { margin-top:64px; padding:36px; border-radius:30px; background:#fffdfa; border:1px solid var(--line); box-shadow:0 20px 46px -34px rgba(70,40,55,.5); }
+    .mcta h3 { margin:0; font:800 clamp(26px,3.6vw,40px)/1.15 var(--font-body); letter-spacing:-.03em; }
+    .mcta h3 span { color:var(--pink); }
+    .mcta .say { max-width:560px; margin:18px 0 0; color:#5d5755; font-size:16px; line-height:1.55; }
+    .mcta .dates { display:flex; flex-wrap:wrap; gap:12px 34px; margin-top:22px; font-size:14px; color:#4f4a49; }
+    .mcta .dates b { display:block; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+    .mcta .actions { margin-top:26px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+    @media(max-width:980px) {
+      .mcal { grid-template-columns:repeat(4,1fr); }
+      .mquotes { grid-template-columns:1fr; }
+      .mcase { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:640px) {
+      .mcase { grid-template-columns:1fr; }
+    }
+    @media(max-width:760px) {
+      .mentor { padding:56px 0 70px; }
+      .mcols { grid-template-columns:1fr; }
+      .mstep { gap:14px; padding:18px 18px; }
+      .mcal { grid-template-columns:repeat(3,1fr); }
+      .mres, .mquotes, .mtariffs { grid-template-columns:1fr; }
+      .mcta { padding:24px 20px 26px; }
+    }
     @media(max-width:760px) {
       .wrap { width:min(100% - 36px,560px); }
       header { height:66px; } nav { display:none; } .contact { padding:10px 13px; font-size:12px; }
@@ -195,8 +273,8 @@
     .works h2 span { color:var(--pink); }
     .works .about-text { margin-bottom:44px; }
     /* логотипы брендов: единая сетка, один цвет, равные по «весу» знаки */
-    .brand-logos { --k:1; list-style:none; margin:0 0 clamp(40px,5vw,60px); padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(8px,1.6vw,18px) clamp(20px,4vw,56px); }
-    .brand-logos li { display:flex; align-items:center; justify-content:center; min-height:104px; min-width:0; }
+    .brand-logos { --k:.85; list-style:none; margin:0 0 clamp(40px,5vw,60px); padding:0; display:flex; flex-wrap:wrap; justify-content:center; row-gap:clamp(4px,1vw,14px); }
+    .brand-logos li { display:flex; align-items:center; justify-content:center; flex:0 0 20%; box-sizing:border-box; padding:0 clamp(6px,1.4vw,20px); min-height:96px; min-width:0; }
     .brand-logos img { display:block; width:calc(var(--w) * var(--k)); max-width:100%; height:auto; }
     .brand-logos .logo-text { font:800 calc(var(--fs) * var(--k))/1 var(--font-body); letter-spacing:.07em; color:#282125; white-space:nowrap; }
     .brand-work { position:relative; display:grid; grid-template-columns:minmax(250px,.6fr) 1.4fr; gap:clamp(24px,4vw,56px); align-items:center;
@@ -233,14 +311,15 @@
     .works-stage .vcard.active { z-index:6; scale:1.05; animation-play-state:paused; }
     .works-stage:has(.vcard.active) .vcard:not(.active) { opacity:.72; }
     @media(max-width:980px) {
-      .brand-logos { --k:.86; }
+      .brand-logos { --k:.7; }
       .brand-work { grid-template-columns:1fr; }
       .brand-info { display:grid; grid-template-columns:1fr 1fr; gap:6px 32px; align-items:start; }
       .brand-info .brand-name { grid-column:1; } .brand-desc { grid-column:1; } .brand-post { grid-column:2; grid-row:1 / span 2; margin:0; }
     }
     @media(max-width:760px) {
       .works { padding:56px 0 70px; }
-      .brand-logos { --k:.74; grid-template-columns:repeat(2,1fr); gap:6px 16px; margin-bottom:34px; }
+      .brand-logos { --k:.74; row-gap:6px; margin-bottom:34px; }
+      .brand-logos li { flex-basis:50%; padding:0 8px; }
       .brand-logos li { min-height:82px; }
       .brand-work { border-radius:26px; padding:20px 16px 8px; }
       .brand-info { display:block; } .brand-post { margin-top:22px; }
@@ -303,29 +382,15 @@
       <div class="social">
         <a class="sbtn" href="https://www.instagram.com/reel/DezbC9ax6Fm/?dlrf=bzN3M2lxeDZ3Y2Zv" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.3-3.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>Instagram<span class="arr">↗</span></a>
         <div class="phone" aria-label="Профиль Instagram Василисы"><div class="screen">
-          <div class="ph"><div class="ava"></div><div class="nm">@vsililsa</div><div class="stats"><div><b>402</b>публикации</div><div><b>5 296</b>подписчиков</div></div><div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hint">Instagram</div></div>
+          <div class="ph"><div class="ava"></div><div class="nm">@vsililsa</div><div class="stats"><div><b>407</b>публикации</div><div><b>5 311</b>подписчиков</div></div><div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hint">Instagram</div></div>
           <img src="img/social/instagram.png" alt="Скриншот профиля Instagram Василисы" loading="lazy" onerror="this.remove()">
-        </div></div>
-      </div>
-      <div class="social">
-        <a class="sbtn" href="https://www.tiktok.com/@vsililsaa?_r=1&amp;_t=ZS-9B7sQGbgJsq" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3.3v13.2a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V9.2a6 6 0 1 0 5.2 5.9V8.4a7.3 7.3 0 0 0 4.1 1.3V6.4a4.2 4.2 0 0 1-4.1-4.4Z"/></svg>TikTok<span class="arr">↗</span></a>
-        <div class="phone" aria-label="Профиль TikTok Василисы"><div class="screen">
-          <div class="ph"><div class="ava"></div><div class="nm">@vsililsaa</div><div class="stats"><div><b>41</b>подписки</div><div><b>493</b>подписчика</div></div><div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hint">TikTok</div></div>
-          <img src="img/social/tiktok.png" alt="Скриншот профиля TikTok Василисы" loading="lazy" onerror="this.remove()">
         </div></div>
       </div>
       <div class="social">
         <a class="sbtn" href="https://t.me/vsililsaa" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 3.4 2.9 10.6c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.3 4.8 3.5c.9.5 1.5.2 1.7-.8L22.9 4.8c.3-1.2-.4-1.7-1.3-1.4ZM8.8 13.2l9.5-6c.5-.3.9-.1.5.2l-7.9 7.1-.3 3.3-1.8-4.6Z"/></svg>Telegram<span class="arr">↗</span></a>
         <div class="phone" aria-label="Скриншот профиля Telegram"><div class="screen">
-          <div class="ph"><div class="ava"></div><div class="nm">@vsililsaa</div><div class="stats"><div><b>Telegram</b>канал</div></div><div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hint">Telegram</div></div>
+          <div class="ph"><div class="ava"></div><div class="nm">@vsililsaa</div><div class="stats"><div><b>3 089</b>подписчиков</div></div><div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hint">Telegram</div></div>
           <img src="img/social/telegram.png" alt="Скриншот канала Telegram Василисы" loading="lazy" onerror="this.remove()">
-        </div></div>
-      </div>
-      <div class="social">
-        <a class="sbtn" href="https://youtube.com/@vsililsa?si=ZbRctaAo26Tc88g3" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2C1.1 8.9 1.1 12 1.1 12s0 3.1.4 4.8a2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2c.4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8ZM9.9 15.1V8.9l5.4 3.1-5.4 3.1Z"/></svg>YouTube<span class="arr">↗</span></a>
-        <div class="phone" aria-label="Профиль YouTube Василисы"><div class="screen">
-          <div class="ph"><div class="ava"></div><div class="nm">@vsililsa</div><div class="stats"><div><b>117</b>видео</div><div><b>344</b>подписчика</div></div><div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hint">YouTube</div></div>
-          <img src="img/social/youtube.png" alt="Скриншот канала YouTube Василисы" loading="lazy" onerror="this.remove()">
         </div></div>
       </div>
     </div>
@@ -333,39 +398,229 @@
   <section class="wrap works" id="works">
     <div class="eyebrow"><img class="avatar" src="avatar.png" alt=""> Василиса · мои работы</div>
     <h2><span>мои</span> работы</h2>
-    <p class="about-text">Ролики, которые я сняла для брендов. Нажми на видео — включится звук.</p>
+    <p class="about-text">Ролики, которые я сняла для брендов.</p>
     <ul class="brand-logos" aria-label="Бренды, с которыми я сотрудничала">
       <li><img src="img/brands/lovix.png" alt="LOVIX" style="--w:150px" width="720" height="187" loading="lazy"></li>
+      <li><img src="img/brands/zolotoe-yabloko.png" alt="Золотое Яблоко" style="--w:96px" width="640" height="602" loading="lazy"></li>
       <li><img src="img/brands/aravia.png" alt="ARAVIA Professional" style="--w:170px" width="720" height="251" loading="lazy"></li>
+      <li><img src="img/brands/loreal.png" alt="L’Oréal Paris" style="--w:170px" width="720" height="194" loading="lazy"></li>
       <li><img src="img/brands/yasoma.png" alt="YASOMA" style="--w:184px" width="713" height="99" loading="lazy"></li>
+      <li><img src="img/brands/sunlight.png" alt="SUNLIGHT" style="--w:190px" width="720" height="161" loading="lazy"></li>
       <li><img src="img/brands/lagom.png" alt="LAGOM — not too little, not too much" style="--w:180px" width="1137" height="306" loading="lazy"></li>
+      <li><img src="img/brands/yandex-market.png" alt="Яндекс Маркет" style="--w:190px" width="720" height="179" loading="lazy"></li>
       <li><span class="logo-text" style="--fs:36px">SOKOLOV</span></li>
+      <li><img src="img/brands/mixit.png" alt="MIXIT" style="--w:176px" width="720" height="137" loading="lazy"></li>
+      <li><img src="img/brands/kamali.png" alt="KAMALI Beauty" style="--w:156px" width="720" height="180" loading="lazy"></li>
+      <li><img src="img/brands/abib.png" alt="Abib" style="--w:120px" width="720" height="230" loading="lazy"></li>
       <li><img src="img/brands/frambini.png" alt="frambini" style="--w:166px" width="1042" height="247" loading="lazy"></li>
+      <li><img src="img/brands/podruzhka.png" alt="Подружка" style="--w:104px" width="720" height="540" loading="lazy"></li>
+      <li><img src="img/brands/de-paris.png" alt="DE PARIS" style="--w:124px" width="720" height="242" loading="lazy"></li>
+      <li><img src="img/brands/kirichuk.png" alt="KIRICHUK" style="--w:178px" width="720" height="107" loading="lazy"></li>
+      <li><img src="img/brands/skin627.png" alt="SKIN627" style="--w:146px" width="720" height="137" loading="lazy"></li>
+      <li><img src="img/brands/yooah.png" alt="yooah" style="--w:140px" width="720" height="186" loading="lazy"></li>
+      <li><img src="img/brands/lizda.png" alt="LIZDA." style="--w:150px" width="720" height="186" loading="lazy"></li>
+      <li><img src="img/brands/lama-lamp.png" alt="lama.lamp" style="--w:168px" width="720" height="140" loading="lazy"></li>
     </ul>
     <article class="brand-work" aria-label="Работы для SOKOLOV">
       <svg class="sparkle" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C54 28 72 46 100 50C72 54 54 72 50 100C46 72 28 54 0 50C28 46 46 28 50 0Z"/></svg>
       <div class="brand-info">
         <div class="brand-name">SOKOLOV</div>
-        <p class="brand-desc">Ювелирный бренд и косметика Sokolov Beauty. Три ролика и пост бренда в Instagram.</p>
+        <p class="brand-desc">Работала 6 месяцев креатором бренда SOKOLOV</p>
         <figure class="brand-post"><img src="img/works/sokolov-post.jpg" alt="Пост sokolov.beauty в Instagram: конкурс UGC-креаторов" loading="lazy"><figcaption>Пост sokolov.beauty про конкурс UGC-креаторов</figcaption></figure>
       </div>
       <div class="works-stage">
-        <button class="vcard w1" type="button" data-video="video/sokolov-1.mp4" data-title="SOKOLOV / Обмен золота" aria-label="Смотреть видео со звуком: SOKOLOV, обмен золота (клик — пауза)">
+        <button class="vcard w1" type="button" data-video="video/sokolov-1.mp4" data-title="SOKOLOV / GRWM с уходом" aria-label="Смотреть видео со звуком: SOKOLOV, GRWM с уходом (клик — пауза)">
           <span class="frame"><video class="preview" src="video/sokolov-1-preview.mp4" poster="video/sokolov-1.jpg" muted loop playsinline preload="metadata"></video><span class="play"></span><span class="bar"></span></span>
-          <span class="label">Обмен золота</span>
+          <span class="label">GRWM с уходом</span>
         </button>
-        <button class="vcard w2" type="button" data-video="video/sokolov-2.mp4" data-title="SOKOLOV / Косметика" aria-label="Смотреть видео со звуком: SOKOLOV, косметика (клик — пауза)">
+        <button class="vcard w2" type="button" data-video="video/sokolov-2.mp4" data-title="SOKOLOV / Dragon fruit" aria-label="Смотреть видео со звуком: SOKOLOV, dragon fruit (клик — пауза)">
           <span class="frame"><video class="preview" src="video/sokolov-2-preview.mp4" poster="video/sokolov-2.jpg" muted loop playsinline preload="metadata"></video><span class="play"></span><span class="bar"></span></span>
-          <span class="label">Скупила всю косметику</span>
+          <span class="label">Dragon fruit</span>
         </button>
-        <button class="vcard w3" type="button" data-video="video/sokolov-3.mp4" data-title="SOKOLOV / Кольцо" aria-label="Смотреть видео со звуком: SOKOLOV, кольцо (клик — пауза)">
+        <button class="vcard w3" type="button" data-video="video/sokolov-3.mp4" data-title="SOKOLOV / Правила роскошного образа" aria-label="Смотреть видео со звуком: SOKOLOV, правила роскошного образа (клик — пауза)">
           <span class="frame"><video class="preview" src="video/sokolov-3-preview.mp4" poster="video/sokolov-3.jpg" muted loop playsinline preload="metadata"></video><span class="play"></span><span class="bar"></span></span>
-          <span class="label">Кольцо</span>
+          <span class="label">Правила роскошного образа</span>
         </button>
       </div>
     </article>
   </section>
-  <div class="wrap below" id="mentor">Помогаю создавать контент, который любят бренды.</div>
+  <section class="wrap mentor" id="mentor">
+    <div class="eyebrow"><img class="avatar" src="avatar.png" alt=""> Василиса · наставничество</div>
+    <h2><span>наставничество</span></h2>
+    <p class="lead">21 день до первых шагов в UGC - от точки А до первого договора с брендом. Программа для тех, кто хочет снимать для брендов, но не знает, с чего начать.</p>
+
+    <div class="mcols">
+      <div class="mcard">
+        <span class="mtag">Что это?</span>
+        <h3>Личное сопровождение</h3>
+        <p>Я рядом каждый день и веду тебя от нуля до первого договора с брендом: разбираемся вместе, проверяю каждое задание и помогаю довести дело до результата.</p>
+      </div>
+      <div class="mcard">
+        <span class="mtag">Под тебя</span>
+        <h3>Твоя точка А, твоя цель, твой темп</h3>
+        <p>Кому-то нужно больше времени на блог, кому-то - на съёмку и портфолио. Я подстрою программу под тебя.</p>
+      </div>
+      <div class="mcard">
+        <span class="mtag">Без блога</span>
+        <h3>Блог не обязателен</h3>
+        <p>Приходи без блога. Сосредоточимся только на UGC: снимать, монтировать, собрать портфолио и выйти к брендам.</p>
+      </div>
+    </div>
+
+    <h3 class="ms-title">Твой путь - 5 шагов</h3>
+    <div class="msteps">
+      <div class="mstep">
+        <span class="num">1</span>
+        <div>
+          <div class="mhead"><h3>Знакомство и база</h3><span class="days">дни 1-3</span></div>
+          <ul><li>находим твою точку А</li><li>разбираемся, как устроен рынок UGC</li><li>выбираем нишу и составляем план</li></ul>
+        </div>
+      </div>
+      <div class="mstep">
+        <span class="num">2</span>
+        <div>
+          <div class="mhead"><h3>Упаковка</h3><span class="days">дни 4-5</span></div>
+          <ul><li>шапка, актуальные, аватар</li><li>профиль, который понятен брендам</li><li>показываем, кто ты и что умеешь</li></ul>
+        </div>
+      </div>
+      <div class="mstep">
+        <span class="num">3</span>
+        <div>
+          <div class="mhead"><h3>Съёмка и монтаж</h3><span class="days">дни 6-12</span></div>
+          <ul><li>свет, ракурсы, композиция</li><li>четыре съёмки, три монтажа</li><li>под конец снимаешь по ТЗ сама</li></ul>
+        </div>
+      </div>
+      <div class="mstep">
+        <span class="num">4</span>
+        <div>
+          <div class="mhead"><h3>Портфолио</h3><span class="days">дни 13-16</span></div>
+          <ul><li>продумываем структуру</li><li>снимаем работы специально для портфолио</li><li>собираем так, чтобы оно продавало</li></ul>
+        </div>
+      </div>
+      <div class="mstep">
+        <span class="num">5</span>
+        <div>
+          <div class="mhead"><h3>Выход на бренды</h3><span class="days">дни 17-21</span></div>
+          <ul><li>ищем бренды под тебя</li><li>шаблоны откликов</li><li>переписка и условия, тестовое задание</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="ms-title">Календарь - 21 день</h3>
+    <div class="mcal">
+      <div class="mday"><b>1</b><span>знакомство и точка А</span></div>
+      <div class="mday"><b>2</b><span>форматы UGC и примеры</span></div>
+      <div class="mday"><b>3</b><span>ниша, стиль, план</span></div>
+      <div class="mday"><b>4</b><span>шапка, актуальные, аватар</span></div>
+      <div class="mday"><b>5</b><span>позиционирование</span></div>
+      <div class="mday"><b>6</b><span>монтаж №1</span></div>
+      <div class="mday"><b>7</b><span>съёмка №1, свет и ракурсы</span></div>
+      <div class="mday"><b>8</b><span>съёмка №2, пересъёмка</span></div>
+      <div class="mday"><b>9</b><span>монтаж №2, динамика и музыка</span></div>
+      <div class="mday"><b>10</b><span>съёмка №3, обзоры и распаковки</span></div>
+      <div class="mday"><b>11</b><span>съёмка №4, по ТЗ сама</span></div>
+      <div class="mday"><b>12</b><span>монтаж №3, Reels от идеи до ролика</span></div>
+      <div class="mday"><b>13</b><span>концепция портфолио</span></div>
+      <div class="mday"><b>14</b><span>съёмка портфолио</span></div>
+      <div class="mday"><b>15</b><span>досъёмка и пересъёмка</span></div>
+      <div class="mday"><b>16</b><span>сборка портфолио</span></div>
+      <div class="mday"><b>17</b><span>поиск брендов</span></div>
+      <div class="mday"><b>18</b><span>шаблоны и первые отклики</span></div>
+      <div class="mday"><b>19</b><span>ответы и переписка</span></div>
+      <div class="mday"><b>20</b><span>тестовое задание</span></div>
+      <div class="mday hi"><b>21</b><span>результат и план дальше</span></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+
+    <h3 class="ms-title">Результат</h3>
+    <div class="mres">
+      <div class="box">
+        <h3>Через 21 день ты…</h3>
+        <ul class="mlist">
+          <li>снимаешь сама</li>
+          <li>монтируешь сама</li>
+          <li>имеешь готовое портфолио</li>
+          <li>имеешь профиль, понятный брендам</li>
+          <li>устраиваешься в проект</li>
+          <li>подписываешь договор с брендом</li>
+          <li>начинаешь зарабатывать</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Ты получишь</h3>
+        <ul class="mlist">
+          <li>навыки съёмки и монтажа</li>
+          <li>готовый профиль</li>
+          <li>портфолио</li>
+          <li>понимание, как работать с брендами</li>
+          <li>первые отклики</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="ms-title">Отзывы</h3>
+    <div class="mquotes">
+      <figure class="mquote">
+        <blockquote>Я до сих пор не верю, что я наконец-то что-то буду делать</blockquote>
+        <figcaption>из переписки после оформления первого договора</figcaption>
+      </figure>
+      <figure class="mquote">
+        <blockquote>Это именно та мысль, которая мне нужна была. Ты лучшая</blockquote>
+        <figcaption>Яся, ученица - отзыв на практические задания</figcaption>
+      </figure>
+      <figure class="mquote">
+        <blockquote>Вася, ты крутая</blockquote>
+        <figcaption>Дарина, ученица - личная переписка</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="ms-title">Кейс ученицы - Владислава</h3>
+    <div class="mcase">
+      <figure class="mkind">
+        <div class="mframe"><img src="img/reviews/case-1.jpg" alt="Кейс ученицы: цель Владиславы - понять суть UGC и выйти хотя бы на 1 контент-завод к концу сентября" loading="lazy"></div>
+        <figcaption>Цель: понять суть UGC и выйти хотя бы на 1 контент-завод</figcaption>
+      </figure>
+      <figure class="mkind">
+        <div class="mframe"><img src="img/reviews/case-2.jpg" alt="В процессе обучения: UGC-форматы, монтаж, фишки контента, разговорники, beauty-рилсы и обзоры" loading="lazy"></div>
+        <figcaption>В процессе: разобрали UGC-форматы, монтаж, сняли разговорники, beauty-рилсы и обзоры</figcaption>
+      </figure>
+      <figure class="mkind">
+        <div class="mframe"><img src="img/reviews/case-3.jpg" alt="Что получилось за обучение: портфолио, желаемый доход и устройство на контент-завод" loading="lazy"></div>
+        <figcaption>Итог: составила портфолио, вышла на желаемый доход и устроилась на контент-завод</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="ms-title">Как идёт обучение</h3>
+    <div class="mhow">
+      <ul class="mlist row">
+        <li>у тебя своя папка, я пишу лично</li>
+        <li>уроки и подкасты</li>
+        <li>вся работа в личных сообщениях, только ты и я</li>
+      </ul>
+    </div>
+
+    <h3 class="ms-title">Тарифы</h3>
+    <div class="mtariffs">
+      <div class="mtariff pro">
+        <span class="band">Индивидуально</span>
+        <span class="price">35 000 <small>₽</small></span>
+        <p>Вся работа в личных сообщениях - только ты и я.</p>
+      </div>
+    </div>
+
+    <div class="mcta">
+      <h3><span>Готова?</span> Пиши мне и задавай вопросы</h3>
+      <p class="say">Если что-то хочется уточнить - напиши, я на связи и подробно отвечу.</p>
+      <div class="dates">
+        <div><b>Старт</b>в любую комфортную тебе дату</div>
+      </div>
+      <div class="actions">
+        <a class="button" href="https://t.me/vsililsaa" target="_blank" rel="noopener noreferrer">Написать в Telegram <span>↗</span></a>
+        <a class="text-link" href="mailto:hello@example.com">или на почту ↘</a>
+      </div>
+    </div>
+  </section>
+  <div class="wrap below">Помогаю создавать контент, который любят бренды.</div>
   <script>
     (function () {
       var story = [
@@ -432,6 +687,8 @@
       }
       add('.aboutme > .eyebrow'); add('.aboutme h2'); add('.about-text'); add('.about-story');
       add('.social', .12); add('.below');
+      add('.mentor .eyebrow'); add('.mentor h2'); add('.mentor .lead'); add('.mcard', .08);
+      add('.mstep', .1); add('.mday', .015); add('.mres .box', .12); add('.mquote', .12); add('.mhow'); add('.mkind', .14); add('.mtariff', .14); add('.mcta');
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
       }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
